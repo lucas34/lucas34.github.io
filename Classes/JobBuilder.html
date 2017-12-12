@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>JobBuilder Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/JobBuilder" class="dashAnchor"></a>
+    <a title="JobBuilder Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">SwiftQueue Docs</a> (80% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">SwiftQueue Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        JobBuilder Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:10SwiftQueue8CanceledC">Canceled</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:10SwiftQueue15ConstraintErrorC">ConstraintError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:10SwiftQueue13DeadlineErrorC">DeadlineError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/JobBuilder.html">JobBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SwiftQueueManager.html">SwiftQueueManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:10SwiftQueue16TaskAlreadyExistC">TaskAlreadyExist</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UserDefaultsPersister.html">UserDefaultsPersister</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/NetworkType.html">NetworkType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/RetryConstraint.html">RetryConstraint</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/Job.html">Job</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/JobCreator.html">JobCreator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/JobPersister.html">JobPersister</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/JobResult.html">JobResult</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>JobBuilder</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">JobBuilder</span></code></pre>
+
+                </div>
+              </div>
+            <p>Builder to create your job with behaviour</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftQueue10JobBuilderCACSS4type_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(type:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftQueue10JobBuilderCACSS4type_tcfc">init(type:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">type</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftQueue10JobBuilderC14singleInstanceACSS5forId_tF"></a>
+                    <a name="//apple_ref/swift/Method/singleInstance(forId:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftQueue10JobBuilderC14singleInstanceACSS5forId_tF">singleInstance(forId:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Allow only 1 job at the time with this ID scheduled or running
+Same job scheduled with same id will result in onRemove(TaskAlreadyExist)</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">singleInstance</span><span class="p">(</span><span class="nv">forId</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">JobBuilder</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftQueue10JobBuilderC5groupACSS4name_tF"></a>
+                    <a name="//apple_ref/swift/Method/group(name:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftQueue10JobBuilderC5groupACSS4name_tF">group(name:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Job in different groups can run in parallel</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">group</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">JobBuilder</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftQueue10JobBuilderC5delayACSi8inSecond_tF"></a>
+                    <a name="//apple_ref/swift/Method/delay(inSecond:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftQueue10JobBuilderC5delayACSi8inSecond_tF">delay(inSecond:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">delay</span><span class="p">(</span><span class="nv">inSecond</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">JobBuilder</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftQueue10JobBuilderC5delayACSd4time_tF"></a>
+                    <a name="//apple_ref/swift/Method/delay(time:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftQueue10JobBuilderC5delayACSd4time_tF">delay(time:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">delay</span><span class="p">(</span><span class="nv">time</span><span class="p">:</span> <span class="kt">TimeInterval</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">JobBuilder</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftQueue10JobBuilderC8deadlineAC10Foundation4DateV4date_tF"></a>
+                    <a name="//apple_ref/swift/Method/deadline(date:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftQueue10JobBuilderC8deadlineAC10Foundation4DateV4date_tF">deadline(date:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Job should be removed from the queue after a certain date</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deadline</span><span class="p">(</span><span class="nv">date</span><span class="p">:</span> <span class="kt">Date</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">JobBuilder</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftQueue10JobBuilderC8periodicACSi5count_Sd8intervaltF"></a>
+                    <a name="//apple_ref/swift/Method/periodic(count:interval:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftQueue10JobBuilderC8periodicACSi5count_Sd8intervaltF">periodic(count:interval:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">periodic</span><span class="p">(</span><span class="nv">count</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nv">interval</span><span class="p">:</span> <span class="kt">TimeInterval</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">JobBuilder</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftQueue10JobBuilderC8internetAcA11NetworkTypeO7atLeast_tF"></a>
+                    <a name="//apple_ref/swift/Method/internet(atLeast:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftQueue10JobBuilderC8internetAcA11NetworkTypeO7atLeast_tF">internet(atLeast:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Connectivity constraint.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">internet</span><span class="p">(</span><span class="nv">atLeast</span><span class="p">:</span> <span class="kt"><a href="../Enums/NetworkType.html">NetworkType</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">JobBuilder</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftQueue10JobBuilderC7persistACSb8required_tF"></a>
+                    <a name="//apple_ref/swift/Method/persist(required:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftQueue10JobBuilderC7persistACSb8required_tF">persist(required:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">persist</span><span class="p">(</span><span class="nv">required</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">JobBuilder</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftQueue10JobBuilderC5retryACSi3max_tF"></a>
+                    <a name="//apple_ref/swift/Method/retry(max:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftQueue10JobBuilderC5retryACSi3max_tF">retry(max:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Max number of authorised retry before the job is removed</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">retry</span><span class="p">(</span><span class="nv">max</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">JobBuilder</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftQueue10JobBuilderC6addTagACSS3tag_tF"></a>
+                    <a name="//apple_ref/swift/Method/addTag(tag:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftQueue10JobBuilderC6addTagACSS3tag_tF">addTag(tag:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Custom tag to mark the job</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">addTag</span><span class="p">(</span><span class="nv">tag</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">JobBuilder</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftQueue10JobBuilderC4withACs10DictionaryVySSypG6params_tF"></a>
+                    <a name="//apple_ref/swift/Method/with(params:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftQueue10JobBuilderC4withACs10DictionaryVySSypG6params_tF">with(params:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Custom parameters will be forwarded to create method</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">with</span><span class="p">(</span><span class="nv">params</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">JobBuilder</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftQueue10JobBuilderC8scheduleyAA0aB7ManagerC7manager_tF"></a>
+                    <a name="//apple_ref/swift/Method/schedule(manager:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftQueue10JobBuilderC8scheduleyAA0aB7ManagerC7manager_tF">schedule(manager:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Add job to the JobQueue</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">schedule</span><span class="p">(</span><span class="nv">manager</span><span class="p">:</span> <span class="kt"><a href="../Classes/SwiftQueueManager.html">SwiftQueueManager</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="https://github.com/lucas34/SwiftQueue" target="_blank" rel="external">Lucas Nelaupe</a>. All rights reserved. (Last updated: 2017-12-12)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

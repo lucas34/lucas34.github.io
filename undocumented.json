@@ -1,0 +1,75 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/lucas34990/SwiftQueue/Sources/SwiftQueue/Job.swift",
+      "line": 26,
+      "symbol": "JobBuilder.init(type:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lucas34990/SwiftQueue/Sources/SwiftQueue/Job.swift",
+      "line": 43,
+      "symbol": "JobBuilder.delay(inSecond:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lucas34990/SwiftQueue/Sources/SwiftQueue/Job.swift",
+      "line": 48,
+      "symbol": "JobBuilder.delay(time:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lucas34990/SwiftQueue/Sources/SwiftQueue/Job.swift",
+      "line": 59,
+      "symbol": "JobBuilder.periodic(count:interval:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lucas34990/SwiftQueue/Sources/SwiftQueue/Job.swift",
+      "line": 71,
+      "symbol": "JobBuilder.persist(required:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lucas34990/SwiftQueue/Sources/SwiftQueue/SwiftQueueManager.swift",
+      "line": 8,
+      "symbol": "SwiftQueueManager",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lucas34990/SwiftQueue/Sources/SwiftQueue/SwiftQueueManager.swift",
+      "line": 17,
+      "symbol": "SwiftQueueManager.init(creators:persister:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lucas34990/SwiftQueue/Sources/SwiftQueue/SwiftQueueManager.swift",
+      "line": 27,
+      "symbol": "SwiftQueueManager.start()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lucas34990/SwiftQueue/Sources/SwiftQueue/UserDefaultsPersister.swift",
+      "line": 8,
+      "symbol": "UserDefaultsPersister",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lucas34990/SwiftQueue/Sources/SwiftQueue/UserDefaultsPersister.swift",
+      "line": 12,
+      "symbol": "UserDefaultsPersister.init(key:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/lucas34990/SwiftQueue"
+}

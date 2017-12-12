@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Job Protocol Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Protocol/Job" class="dashAnchor"></a>
+    <a title="Job Protocol Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">SwiftQueue Docs</a> (80% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">SwiftQueue Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        Job Protocol Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:10SwiftQueue8CanceledC">Canceled</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:10SwiftQueue15ConstraintErrorC">ConstraintError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:10SwiftQueue13DeadlineErrorC">DeadlineError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/JobBuilder.html">JobBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SwiftQueueManager.html">SwiftQueueManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:10SwiftQueue16TaskAlreadyExistC">TaskAlreadyExist</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UserDefaultsPersister.html">UserDefaultsPersister</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/NetworkType.html">NetworkType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/RetryConstraint.html">RetryConstraint</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/Job.html">Job</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/JobCreator.html">JobCreator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/JobPersister.html">JobPersister</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/JobResult.html">JobResult</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>Job</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Job</span></code></pre>
+
+                </div>
+              </div>
+            <p>Protocol to implement to run a job</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftQueue3JobP5onRunyAA0C6Result_p8callback_tF"></a>
+                    <a name="//apple_ref/swift/Method/onRun(callback:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftQueue3JobP5onRunyAA0C6Result_p8callback_tF">onRun(callback:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Perform your operation</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">onRun</span><span class="p">(</span><span class="nv">callback</span><span class="p">:</span> <span class="kt"><a href="../Protocols/JobResult.html">JobResult</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftQueue3JobP7onRetryAA0E10ConstraintOs5Error_p5error_tF"></a>
+                    <a name="//apple_ref/swift/Method/onRetry(error:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftQueue3JobP7onRetryAA0E10ConstraintOs5Error_p5error_tF">onRetry(error:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fail has failed with the 
+Will only gets called if the job can be retried
+Not applicable for &lsquo;ConstraintError&rsquo;
+Not application if the retry(value) is less than 2 which is the case by default</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">onRetry</span><span class="p">(</span><span class="nv">error</span><span class="p">:</span> <span class="kt">Swift</span><span class="o">.</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Enums/RetryConstraint.html">RetryConstraint</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftQueue3JobP8onRemoveys5Error_pSg5error_tF"></a>
+                    <a name="//apple_ref/swift/Method/onRemove(error:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftQueue3JobP8onRemoveys5Error_pSg5error_tF">onRemove(error:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Job is removed from the queue and will never run again</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">onRemove</span><span class="p">(</span><span class="nv">error</span><span class="p">:</span> <span class="kt">Swift</span><span class="o">.</span><span class="kt">Error</span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="https://github.com/lucas34/SwiftQueue" target="_blank" rel="external">Lucas Nelaupe</a>. All rights reserved. (Last updated: 2017-12-12)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
