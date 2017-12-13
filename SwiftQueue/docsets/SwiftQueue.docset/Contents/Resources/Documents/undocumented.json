@@ -15,6 +15,20 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/lucas34990/SwiftQueue/Sources/SwiftQueue/SwiftQueueManager.swift",
+      "line": 17,
+      "symbol": "SwiftQueueManager.init(creators:persister:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/lucas34990/SwiftQueue/Sources/SwiftQueue/SwiftQueueManager.swift",
+      "line": 27,
+      "symbol": "SwiftQueueManager.start()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/lucas34990/SwiftQueue/Sources/SwiftQueue/UserDefaultsPersister.swift",
       "line": 13,
       "symbol": "UserDefaultsPersister.init(key:)",
