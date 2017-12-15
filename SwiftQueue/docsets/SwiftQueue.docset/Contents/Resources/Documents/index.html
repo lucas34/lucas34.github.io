@@ -158,16 +158,21 @@
     <span class="c1">// Type to know which Job to return in job creator</span>
     <span class="kd">static</span> <span class="k">let</span> <span class="nv">type</span> <span class="o">=</span> <span class="s">"SendTweetJob"</span>
     <span class="c1">// Param</span>
-    <span class="kd">private</span> <span class="k">let</span> <span class="nv">tweetMessage</span><span class="p">:</span> <span class="kt">String</span>
+    <span class="kd">private</span> <span class="k">let</span> <span class="nv">tweet</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">Any</span><span class="p">]</span>
 
-    <span class="kd">required</span> <span class="nf">init</span><span class="p">(</span><span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">required</span> <span class="nf">init</span><span class="p">(</span><span class="nv">params</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">Any</span><span class="p">])</span> <span class="p">{</span>
         <span class="c1">// Receive params from JobBuilder.with()</span>
-        <span class="k">self</span><span class="o">.</span><span class="n">tweetMessage</span> <span class="o">=</span> <span class="n">message</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">tweet</span> <span class="o">=</span> <span class="n">params</span>
     <span class="p">}</span>
 
     <span class="kd">func</span> <span class="nf">onRun</span><span class="p">(</span><span class="nv">callback</span><span class="p">:</span> <span class="kt">JobResult</span><span class="p">)</span> <span class="k">throws</span> <span class="p">{</span>
-        <span class="c1">// Run your job here</span>
-        <span class="n">callback</span><span class="o">.</span><span class="nf">onDone</span><span class="p">(</span><span class="nv">error</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+        <span class="k">do</span> <span class="p">{</span>
+            <span class="k">try</span> <span class="kt">Api</span><span class="p">()</span><span class="o">.</span><span class="nf">sendTweet</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="n">tweet</span><span class="p">)</span>
+            <span class="c1">// Consider the call synchronous in this case</span>
+            <span class="n">callback</span><span class="o">.</span><span class="nf">done</span><span class="p">(</span><span class="o">.</span><span class="n">success</span><span class="p">)</span>        
+        <span class="p">}</span> <span class="k">catch</span> <span class="k">let</span> <span class="nv">error</span> <span class="p">{</span>
+            <span class="n">callback</span><span class="o">.</span><span class="nf">done</span><span class="p">(</span><span class="o">.</span><span class="nf">fail</span><span class="p">(</span><span class="n">error</span><span class="p">))</span>    
+        <span class="p">}</span>
     <span class="p">}</span>
 
     <span class="kd">func</span> <span class="nf">onRetry</span><span class="p">(</span><span class="nv">error</span><span class="p">:</span> <span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">RetryConstraint</span> <span class="p">{</span>
@@ -175,9 +180,18 @@
         <span class="k">return</span> <span class="n">error</span> <span class="k">is</span> <span class="kt">ApiError</span> <span class="p">?</span> <span class="kt">RetryConstraint</span><span class="o">.</span><span class="nv">cancel</span> <span class="p">:</span> <span class="kt">RetryConstraint</span><span class="o">.</span><span class="n">retry</span>
     <span class="p">}</span>
 
-    <span class="kd">func</span> <span class="nf">onRemove</span><span class="p">(</span><span class="nv">error</span><span class="p">:</span> <span class="kt">Error</span><span class="p">?)</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">onRemove</span><span class="p">(</span><span class="nv">result</span><span class="p">:</span> <span class="kt">JobCompletion</span><span class="p">)</span> <span class="p">{</span>
         <span class="c1">// This job will never run anymore  </span>
-        <span class="c1">// Success if error is nil. fail otherwise</span>
+        <span class="k">switch</span> <span class="n">result</span> <span class="p">{</span>
+            <span class="k">case</span> <span class="o">.</span><span class="nv">success</span><span class="p">:</span>
+                <span class="c1">// Job success</span>
+            <span class="k">break</span>
+
+            <span class="k">case</span> <span class="o">.</span><span class="nf">fail</span><span class="p">(</span><span class="k">let</span> <span class="nv">error</span><span class="p">):</span>
+                <span class="c1">// Job fail</span>
+            <span class="k">break</span>
+
+        <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
@@ -189,7 +203,7 @@
 <p>Schedule a job with type, parameters and constraints.</p>
 <pre class="highlight swift"><code><span class="kt">JobBuilder</span><span class="p">(</span><span class="nv">type</span><span class="p">:</span> <span class="kt">SendTweetJob</span><span class="o">.</span><span class="n">type</span><span class="p">)</span>
         <span class="c1">// params of my job</span>
-        <span class="o">.</span><span class="nf">with</span><span class="p">(</span><span class="nv">params</span><span class="p">:</span> <span class="s">"Hello TweetWorld"</span><span class="p">)</span>
+        <span class="o">.</span><span class="nf">with</span><span class="p">(</span><span class="nv">params</span><span class="p">:</span> <span class="p">[</span><span class="s">"content"</span><span class="p">:</span> <span class="s">"Hellow world"</span><span class="p">])</span>
         <span class="c1">// Add to queue manager</span>
         <span class="o">.</span><span class="nf">schedule</span><span class="p">(</span><span class="nv">manager</span><span class="p">:</span> <span class="n">manager</span><span class="p">)</span>
 </code></pre>
@@ -225,7 +239,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2017 <a class="link" href="https://github.com/lucas34/SwiftQueue" target="_blank" rel="external">Lucas Nelaupe</a>. All rights reserved. (Last updated: 2017-12-13)</p>
+          <p>&copy; 2017 <a class="link" href="https://github.com/lucas34/SwiftQueue" target="_blank" rel="external">Lucas Nelaupe</a>. All rights reserved. (Last updated: 2017-12-15)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

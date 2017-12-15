@@ -2,7 +2,7 @@
   "warnings": [
     {
       "file": "/Users/lucas34990/SwiftQueue/Sources/SwiftQueue/Job.swift",
-      "line": 121,
+      "line": 105,
       "symbol": "JobCompletion",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
