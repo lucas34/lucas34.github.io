@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta charset="utf-8">
+
+        <title>Journée Mondiale officiel</title>
+
+        <meta name="google-site-verification" content="6vBEWrKMxneGlqwtwrW06rpmNyfGpWnB6RrSV2t9N2E" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Journée mondiale officiel permet de savoir rapidement quelle est la journée mondiale du jour." />
+        <meta name="keyword" content="Journee mondiale liste officiel application android" />
+
+        <link rel="stylesheet" href="../assets/css/bootstrap.css">
+        <link rel="stylesheet" href="assets/css/material.min.css">
+        <link rel="stylesheet" href="assets/css/material-wfont.min.css">
+        <link rel="stylesheet" href="assets/css/ripples.min.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+
+        <script src="../assets/js/jquery.min.js"></script>
+        <script src="../assets/js/bootstrap.js"></script>
+
+    </head>	
+    <body>
+        <div class="header-panel shadow-z-2">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <h1>Journée Mondiale Officiel</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid main">
+            <div class="row">
+                <nav class="col-xs-3 menu">
+                <ul>
+                    <li class="active withripple" data-target="#today">Aujourd'hui</li>
+                    <li class="withripple" data-target="#toutes-les-journees">Liste des journées mondiales</li>
+                    <!--li class="withripple" data-target="#formulaire">Proposer une journée</li-->
+                    <li class="withripple" data-target="#a-propos">A propos</li>
+                    <li><a href="https://play.google.com/store/apps/details?id=packi.day" target="_blank">
+                        <b>Application Android </b><i class="mdi-action-open-in-new"></i></a>
+                    </li>
+                </ul>
+                </nav>
+
+                <div class="pages col-xs-9">
+                    <div class="col-xs-10">
+                        <div class="well page active" id="today">
+                            <h1 class="header" id="date_celebration">Undefined</h1>
+                            <p id="journee-mondiale">Undefined</p>
+                        </div>
+
+                        <div class="well page" id="toutes-les-journees">
+                            <h1 class="header">Liste des journees mondiales</h1>
+                            <div id="list-all"></div>
+                        </div>
+
+                        <div class="well page" id="a-propos">
+                            <h1 class="header">A propos</h1>
+                            <p><b>Journée mondiale officiel</b> permet de savoir rapidement quelle est la journée mondiale du jour.<br />
+                            Les informations sont également disponibles sur notre application Android.
+                            <br /><br />
+                            La liste est non exhaustive et est tirée de la <a href="http://www.un.org/en/events/observances/days.shtml">liste officiel de l'ONU.</a><br /><br />Site fait par <a href="http://www.lucas-nelaupe.fr">Lucas Nelaupe</a>
+                            </p>
+                        </div>
+
+                        <div class="well page" id="formulaire">
+                            <h1 class="header">Proposer une journée mondiale</h1>
+                            <div class="inputs">
+                                <textarea class="form-control" placeholder="Description" style="height:150px;" id="request"></textarea>
+                            </div>
+                            <br />
+                            <button class="btn btn-fab btn-fab-mini btn-raised btn-sm btn-success pull-right" onclick="post()" data-toggle="modal" data-target="#complete-form"><i class="mdi-navigation-check"></i></button>
+                        </div>
+
+                        <div id="complete-form" class="modal fade" tabindex="-1">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        <h4 class="modal-title">Merci !</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>si votre information est exacte, cette journée mondiale fera l'object d'une prochaine mise à jour de notre site et de notre application Android.</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="btn btn-primary" data-dismiss="modal">Ok</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-2">
+
+                        <button class="btn btn-fab btn-material-grey-200" id="leftbutton" onclick="window.location.href = 'http://www.lucas-nelaupe.fr'">
+                            <i class="mdi-action-open-in-new"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="assets/js/animate.js"></script>
+        <script src="assets/js/material.min.js"></script>
+        <script src="assets/js/ripples.min.js"></script>
+        <script>$.material.init();</script>
+        <script src="assets/js/celebration.js"></script>
+
+        <script>
+            function post(){
+            var data = $("#request").val();
+            $.ajax({
+                type: "POST",
+                url: "/post.php",
+                data: { request: data }
+                }).done(function() {
+                    $("#request").val("");
+                });
+            }
+            
+            function rewrite(route){
+                window.history.pushState("object or string", route, "/"+route);
+            }
+
+            </script>
+
+        </body>
+    </html>
