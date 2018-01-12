@@ -2,22 +2,8 @@
   "warnings": [
     {
       "file": "/Users/lucas34990/SwiftQueue/Sources/SwiftQueue/Job.swift",
-      "line": 107,
-      "symbol": "JobCompletion",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/lucas34990/SwiftQueue/Sources/SwiftQueue/SwiftQueueManager.swift",
-      "line": 8,
-      "symbol": "SwiftQueueManager",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/lucas34990/SwiftQueue/Sources/SwiftQueue/UserDefaultsPersister.swift",
-      "line": 13,
-      "symbol": "UserDefaultsPersister.init(key:)",
+      "line": 59,
+      "symbol": "JobBuilder.periodic(limit:interval:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     }

@@ -14,7 +14,7 @@
     <a title="JobBuilder Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">SwiftQueue Docs</a> (94% documented)</p>
+        <p><a href="../index.html">SwiftQueue Docs</a> (98% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -58,6 +58,9 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Enums/JobCompletion.html">JobCompletion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Limit.html">Limit</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/NetworkType.html">NetworkType</a>
@@ -243,9 +246,9 @@ Only start the countdown when the job should run and not when scheduled</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10SwiftQueue10JobBuilderC8periodicACSi5count_Sd8intervaltF"></a>
-                    <a name="//apple_ref/swift/Method/periodic(count:interval:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10SwiftQueue10JobBuilderC8periodicACSi5count_Sd8intervaltF">periodic(count:interval:)</a>
+                    <a name="/s:10SwiftQueue10JobBuilderC8periodicAcA5LimitO5limit_Sd8intervaltF"></a>
+                    <a name="//apple_ref/swift/Method/periodic(limit:interval:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftQueue10JobBuilderC8periodicAcA5LimitO5limit_Sd8intervaltF">periodic(limit:interval:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -253,15 +256,14 @@ Only start the countdown when the job should run and not when scheduled</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Repeat job a certain number of time and with a interval between each run 
-count -1 by default for unlimited periodic and immediate</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">periodic</span><span class="p">(</span><span class="nv">count</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nv">interval</span><span class="p">:</span> <span class="kt">TimeInterval</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">JobBuilder</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">periodic</span><span class="p">(</span><span class="nv">limit</span><span class="p">:</span> <span class="kt"><a href="../Enums/Limit.html">Limit</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">unlimited</span><span class="p">,</span> <span class="nv">interval</span><span class="p">:</span> <span class="kt">TimeInterval</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">JobBuilder</span></code></pre>
 
                         </div>
                       </div>
@@ -325,9 +327,9 @@ count -1 by default for unlimited periodic and immediate</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10SwiftQueue10JobBuilderC5retryACSi3max_tF"></a>
-                    <a name="//apple_ref/swift/Method/retry(max:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10SwiftQueue10JobBuilderC5retryACSi3max_tF">retry(max:)</a>
+                    <a name="/s:10SwiftQueue10JobBuilderC5retryAcA5LimitO5limit_tF"></a>
+                    <a name="//apple_ref/swift/Method/retry(limit:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftQueue10JobBuilderC5retryAcA5LimitO5limit_tF">retry(limit:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -335,14 +337,15 @@ count -1 by default for unlimited periodic and immediate</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Max number of authorised retry before the job is removed</p>
+                        <p>Limit number of retry. Overall for the lifecycle of the SwiftQueueManager.
+For a periodic job, the retry count will not be reset at each period.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">retry</span><span class="p">(</span><span class="nv">max</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">JobBuilder</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">retry</span><span class="p">(</span><span class="nv">limit</span><span class="p">:</span> <span class="kt"><a href="../Enums/Limit.html">Limit</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">JobBuilder</span></code></pre>
 
                         </div>
                       </div>
@@ -435,7 +438,7 @@ count -1 by default for unlimited periodic and immediate</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://github.com/lucas34/SwiftQueue" target="_blank" rel="external">Lucas Nelaupe</a>. All rights reserved. (Last updated: 2018-01-10)</p>
+          <p>&copy; 2018 <a class="link" href="https://github.com/lucas34/SwiftQueue" target="_blank" rel="external">Lucas Nelaupe</a>. All rights reserved. (Last updated: 2018-01-12)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
