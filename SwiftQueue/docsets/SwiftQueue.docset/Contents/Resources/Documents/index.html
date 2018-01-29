@@ -13,7 +13,7 @@
     <a title="SwiftQueue  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">SwiftQueue Docs</a> (98% documented)</p>
+        <p><a href="index.html">SwiftQueue Docs</a> (100% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -30,22 +30,10 @@
             <a href="Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes.html#/s:10SwiftQueue8CanceledC">Canceled</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes.html#/s:10SwiftQueue15ConstraintErrorC">ConstraintError</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes.html#/s:10SwiftQueue13DeadlineErrorC">DeadlineError</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Classes/JobBuilder.html">JobBuilder</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/SwiftQueueManager.html">SwiftQueueManager</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes.html#/s:10SwiftQueue16TaskAlreadyExistC">TaskAlreadyExist</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/UserDefaultsPersister.html">UserDefaultsPersister</a>
@@ -66,6 +54,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Enums/RetryConstraint.html">RetryConstraint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/SwiftQueueError.html">SwiftQueueError</a>
               </li>
             </ul>
           </li>
@@ -105,20 +96,19 @@
 <a href="https://codecov.io/gh/lucas34/SwiftQueue"><img src="https://codecov.io/gh/lucas34/SwiftQueue/branch/master/graph/badge.svg" alt="codecov"></a>
 <a href="https://cocoapods.org/pods/SwiftQueue"><img src="https://img.shields.io/cocoapods/v/SwiftQueue.svg?style=flat" alt="pod"></a>
 <a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage compatible"></a>
-<a href="https://codebeat.co/projects/github-com-lucas34-swiftqueue-master"><img src="https://codebeat.co/badges/3d446d9e-3e7a-435c-85fc-aa626d4f7652" alt="codebeat badge"></a>
 <a href="https://github.com/apple/swift-package-manager"><img src="https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg" alt="Swift Package Manager compatible"></a>
 <a href="https://lucas34.github.io/SwiftQueue"><img src="https://lucas34.github.io/SwiftQueue/badge.svg" alt="Documentation"></a></p>
 
-<p>SwiftQueue is a job scheduler for Ios inspired by popular android libraries like <em>android-priority-jobqueue</em> or <em>android-job</em>. It allows you to run your tasks with run and retry constraints. </p>
+<p><code>SwiftQueue</code> is a job scheduler for iOS inspired by popular android libraries like <em>android-priority-jobqueue</em> or <em>android-job</em>. It allows you to run your tasks with run and retry constraints. </p>
 
-<p>Library will rely on <em>Operation</em> and <em>OperationQueue</em> to make sure all tasks will run in order. Don&rsquo;t forget to check our <a href="https://github.com/lucas34/SwiftQueue/wiki"><strong>WIKI</strong></a>. </p>
+<p>Library will rely on <code>Operation</code> and <code>OperationQueue</code> to make sure all tasks will run in order. Don&rsquo;t forget to check our <a href="https://github.com/lucas34/SwiftQueue/wiki"><strong>WIKI</strong></a>. </p>
 <h2 id='features' class='heading'>Features</h2>
 
 <ul>
 <li>[x] Sequential execution</li>
 <li>[x] Concurrent run</li>
 <li>[x] Persistence</li>
-<li>[x] Cancel all or by tag</li>
+<li>[x] Cancel all, by id or by tag</li>
 <li>[x] Delay</li>
 <li>[x] Deadline</li>
 <li>[x] Internet constraint</li>
@@ -136,7 +126,7 @@
 <h2 id='installation' class='heading'>Installation</h2>
 <h4 id='carthage' class='heading'>Carthage</h4>
 
-<p>SwiftQueue is carthage compatible. Add the following entry in your Cartfile:</p>
+<p><code>SwiftQueue</code> is <code>carthage</code> compatible. Add the following entry in your <code>Cartfile</code>:</p>
 <pre class="highlight plaintext"><code>github "lucas34/SwiftQueue"
 </code></pre>
 
@@ -152,9 +142,9 @@
 <p>In your application, simply import the library</p>
 <pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">SwiftQueue</span>
 </code></pre>
-<h2 id='usage-example' class='heading'>Usage example</h2>
+<h2 id='example' class='heading'>Example</h2>
 
-<p>This short example will shows you how to schedule a task that send tweets. First, you will need to extend <code><a href="Protocols/Job.html">Job</a></code> and implement <code>onRun</code>, <code>onRetry</code> and <code>onRemove</code> callbacks.</p>
+<p>This example will simply wrap an api call. Create your custom job by extending <code><a href="Protocols/Job.html">Job</a></code> with <code>onRun</code>, <code>onRetry</code> and <code>onRemove</code> callbacks.</p>
 <pre class="highlight swift"><code><span class="c1">// A job to send a tweet</span>
 <span class="kd">class</span> <span class="kt">SendTweetJob</span><span class="p">:</span> <span class="nf">Job</span> <span class="p">{</span>
 
@@ -169,13 +159,12 @@
     <span class="p">}</span>
 
     <span class="kd">func</span> <span class="nf">onRun</span><span class="p">(</span><span class="nv">callback</span><span class="p">:</span> <span class="kt">JobResult</span><span class="p">)</span> <span class="nf">throws</span> <span class="p">{</span>
-        <span class="nf">do</span> <span class="p">{</span>
-            <span class="k">try</span> <span class="nf">Api</span><span class="p">()</span><span class="o">.</span><span class="nf">sendTweet</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="n">tweet</span><span class="p">)</span>
-            <span class="c1">// Consider the call synchronous in this case</span>
-            <span class="n">callback</span><span class="o">.</span><span class="nf">done</span><span class="p">(</span><span class="o">.</span><span class="n">success</span><span class="p">)</span>        
-        <span class="p">}</span> <span class="k">catch</span> <span class="k">let</span> <span class="nv">error</span> <span class="p">{</span>
-            <span class="n">callback</span><span class="o">.</span><span class="nf">done</span><span class="p">(</span><span class="o">.</span><span class="nf">fail</span><span class="p">(</span><span class="n">error</span><span class="p">))</span>    
-        <span class="p">}</span>
+        <span class="k">let</span> <span class="nv">api</span> <span class="o">=</span> <span class="k">try</span> <span class="nf">Api</span><span class="p">()</span>
+        <span class="n">api</span><span class="o">.</span><span class="nf">sendTweet</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="n">tweet</span><span class="p">)</span><span class="o">.</span><span class="nf">execute</span><span class="p">(</span><span class="nv">onSuccess</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">callback</span><span class="o">.</span><span class="nf">done</span><span class="p">(</span><span class="o">.</span><span class="n">success</span><span class="p">)</span>
+        <span class="p">},</span> <span class="nv">onError</span><span class="p">:</span> <span class="p">{</span> <span class="n">error</span> <span class="k">in</span>
+            <span class="n">callback</span><span class="o">.</span><span class="nf">done</span><span class="p">(</span><span class="o">.</span><span class="nf">fail</span><span class="p">(</span><span class="n">error</span><span class="p">))</span>
+        <span class="p">})</span>
     <span class="p">}</span>
 
     <span class="kd">func</span> <span class="nf">onRetry</span><span class="p">(</span><span class="nv">error</span><span class="p">:</span> <span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nf">RetryConstraint</span> <span class="p">{</span>
@@ -199,19 +188,21 @@
 <span class="p">}</span>
 </code></pre>
 
-<p>The class <code><a href="Classes/SwiftQueueManager.html">SwiftQueueManager</a></code> serves as entry point. Your jobs need to extend the class <code><a href="Protocols/Job.html">Job</a></code>. Specify run and retry constraints with <code><a href="Classes/JobBuilder.html">JobBuilder</a></code> and schedule by giving <code><a href="Classes/SwiftQueueManager.html">SwiftQueueManager</a></code> </p>
+<p>Create your <code><a href="Classes/SwiftQueueManager.html">SwiftQueueManager</a></code> and <strong>keep the reference</strong>. If you want to cancel a job it has to be done with the same instance.</p>
 <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">manager</span> <span class="o">=</span> <span class="nf">SwiftQueueManager</span><span class="p">(</span><span class="nv">creators</span><span class="p">:</span> <span class="p">[</span><span class="nf">TweetJobCreator</span><span class="p">()])</span>
 </code></pre>
 
-<p>Schedule a job with type, parameters and constraints.</p>
+<p>Schedule your job and specify the constraints.</p>
 <pre class="highlight swift"><code><span class="nf">JobBuilder</span><span class="p">(</span><span class="nv">type</span><span class="p">:</span> <span class="kt">SendTweetJob</span><span class="o">.</span><span class="n">type</span><span class="p">)</span>
+        <span class="c1">// Requires internet to run</span>
+        <span class="o">.</span><span class="nf">internet</span><span class="p">(</span><span class="nv">atLeast</span><span class="p">:</span> <span class="o">.</span><span class="n">cellular</span><span class="p">)</span>
         <span class="c1">// params of my job</span>
-        <span class="o">.</span><span class="nf">with</span><span class="p">(</span><span class="nv">params</span><span class="p">:</span> <span class="p">[</span><span class="s">"content"</span><span class="p">:</span> <span class="s">"Hellow world"</span><span class="p">])</span>
+        <span class="o">.</span><span class="nf">with</span><span class="p">(</span><span class="nv">params</span><span class="p">:</span> <span class="p">[</span><span class="s">"content"</span><span class="p">:</span> <span class="s">"Hello world"</span><span class="p">])</span>
         <span class="c1">// Add to queue manager</span>
         <span class="o">.</span><span class="nf">schedule</span><span class="p">(</span><span class="nv">manager</span><span class="p">:</span> <span class="n">manager</span><span class="p">)</span>
 </code></pre>
 
-<p>The <code><a href="Protocols/JobCreator.html">JobCreator</a></code> maps a job type to a specific <code>job</code> class. You will receive parameters you specified in <code><a href="Classes/JobBuilder.html">JobBuilder</a></code>.</p>
+<p>Bind your <code>job</code> type with an actual instance.</p>
 <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">TweetJobCreator</span><span class="p">:</span> <span class="nf">JobCreator</span> <span class="p">{</span>
 
     <span class="c1">// Base on type, return the actual job implementation</span>
@@ -226,8 +217,6 @@
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-
-<p>That&rsquo;s it. We haven&rsquo;t specify any constraint so the job will run immediately. Check the <a href="https://github.com/lucas34/SwiftQueue/wiki"><strong>WIKI</strong></a> for a more detailed example.</p>
 <h2 id='contributors' class='heading'>Contributors</h2>
 
 <p>We would love you for the contribution to <strong>SwiftQueue</strong>, check the <code>LICENSE</code> file for more info.</p>
@@ -242,7 +231,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://github.com/lucas34/SwiftQueue" target="_blank" rel="external">Lucas Nelaupe</a>. All rights reserved. (Last updated: 2018-01-22)</p>
+          <p>&copy; 2018 <a class="link" href="https://github.com/lucas34/SwiftQueue" target="_blank" rel="external">Lucas Nelaupe</a>. All rights reserved. (Last updated: 2018-01-29)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

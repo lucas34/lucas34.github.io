@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>UserDefaultsPersister Class Reference</title>
+    <title>SwiftQueueError Enumeration Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/UserDefaultsPersister" class="dashAnchor"></a>
-    <a title="UserDefaultsPersister Class Reference"></a>
+    <a name="//apple_ref/swift/Enum/SwiftQueueError" class="dashAnchor"></a>
+    <a title="SwiftQueueError Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">SwiftQueue Docs</a> (100% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">SwiftQueue Reference</a>
         <img id="carat" src="../img/carat.png" />
-        UserDefaultsPersister Class Reference
+        SwiftQueueError Enumeration Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -83,14 +83,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>UserDefaultsPersister</h1>
+            <h1>SwiftQueueError</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">UserDefaultsPersister</span><span class="p">:</span> <span class="kt"><a href="../Protocols/JobPersister.html">JobPersister</a></span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">SwiftQueueError</span><span class="p">:</span> <span class="kt">Swift</span><span class="o">.</span><span class="kt">Error</span></code></pre>
 
                 </div>
               </div>
-            <p>Persist jobs in UserDefaults</p>
+            <p>Generic class for any constraint violation</p>
 
           </section>
           <section class="section task-group-section">
@@ -99,9 +99,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10SwiftQueue21UserDefaultsPersisterCACSS3key_tcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(key:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10SwiftQueue21UserDefaultsPersisterCACSS3key_tcfc">init(key:)</a>
+                    <a name="/s:10SwiftQueue0aB5ErrorO8canceledA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/canceled" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftQueue0aB5ErrorO8canceledA2CmF">canceled</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -109,26 +109,30 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Create a Job persister with a custom key</p>
+                        <p>Job has been canceled</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">"SwiftQueueInfo"</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">canceled</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10SwiftQueue12JobPersisterP7restoreSaySSGyF"></a>
-                    <a name="//apple_ref/swift/Method/restore()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10SwiftQueue12JobPersisterP7restoreSaySSGyF">restore()</a>
+                    <a name="/s:10SwiftQueue0aB5ErrorO8deadlineA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/deadline" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftQueue0aB5ErrorO8deadlineA2CmF">deadline</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -136,25 +140,30 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>Exception thrown when a deadline is reached</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">restore</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">deadline</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10SwiftQueue21UserDefaultsPersisterC7restoreSaySSGSS9queueName_tF"></a>
-                    <a name="//apple_ref/swift/Method/restore(queueName:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10SwiftQueue21UserDefaultsPersisterC7restoreSaySSGSS9queueName_tF">restore(queueName:)</a>
+                    <a name="/s:10SwiftQueue0aB5ErrorO9duplicateA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/duplicate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftQueue0aB5ErrorO9duplicateA2CmF">duplicate</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -162,69 +171,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Restore jobs for a single queue
-Returns an array of String. Serialised job</p>
+                        <p>Exception thrown when you try to schedule a job with a same ID as one currently scheduled</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">restore</span><span class="p">(</span><span class="nv">queueName</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10SwiftQueue21UserDefaultsPersisterC3putySS9queueName_SS6taskIdSS4datatF"></a>
-                    <a name="//apple_ref/swift/Method/put(queueName:taskId:data:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10SwiftQueue21UserDefaultsPersisterC3putySS9queueName_SS6taskIdSS4datatF">put(queueName:taskId:data:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Insert a job to a specific queue</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">put</span><span class="p">(</span><span class="nv">queueName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">taskId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10SwiftQueue21UserDefaultsPersisterC6removeySS9queueName_SS6taskIdtF"></a>
-                    <a name="//apple_ref/swift/Method/remove(queueName:taskId:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10SwiftQueue21UserDefaultsPersisterC6removeySS9queueName_SS6taskIdtF">remove(queueName:taskId:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Remove a specific task from a queue</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">remove</span><span class="p">(</span><span class="nv">queueName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">taskId</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">duplicate</span></code></pre>
 
                         </div>
                       </div>

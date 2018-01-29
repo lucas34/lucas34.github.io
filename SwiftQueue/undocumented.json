@@ -1,12 +1,6 @@
 {
   "warnings": [
-    {
-      "file": "/Users/lucas34990/SwiftQueue/Sources/SwiftQueue/Job.swift",
-      "line": 57,
-      "symbol": "JobBuilder.periodic(limit:interval:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    }
+
   ],
   "source_directory": "/Users/lucas34990/SwiftQueue"
 }
