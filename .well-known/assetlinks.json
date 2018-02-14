@@ -1,14 +1,9 @@
 [{
   "relation": ["delegate_permission/common.handle_all_urls"],
   "target": {
-    "namespace": "web",
-    "site": "https://www.lucas-nelaupe.fr"
-  }
-},{
-  "relation": ["delegate_permission/common.handle_all_urls"],
-  "target": {
     "namespace": "android_app",
     "package_name": "packi.day.main",
-    "sha256_cert_fingerprints": ["BB:21:9A:CC:7A:5A:83:B4:96:D0:D5:0C:81:31:3E:48:AE:A1:50:84:EF:4E:B6:83:5A:E0:1B:21:70:35:D7:73"]
+    "sha256_cert_fingerprints":
+    ["BB:21:9A:CC:7A:5A:83:B4:96:D0:D5:0C:81:31:3E:48:AE:A1:50:84:EF:4E:B6:83:5A:E0:1B:21:70:35:D7:73"]
   }
 }]
