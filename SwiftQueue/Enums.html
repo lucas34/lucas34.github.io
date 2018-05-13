@@ -10,6 +10,7 @@
     
   </head>
   <body>
+    <a name="//apple_ref/swift/Section/Enumerations" class="dashAnchor"></a>
     <a title="Enumerations  Reference"></a>
     <header>
       <div class="content-wrapper">
@@ -30,13 +31,28 @@
             <a href="Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="Classes/ConsoleLogger.html">ConsoleLogger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/DecodableSerializer.html">DecodableSerializer</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/JobBuilder.html">JobBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/NoLogger.html">NoLogger</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/SwiftQueueManager.html">SwiftQueueManager</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/SwiftQueueManagerBuilder.html">SwiftQueueManagerBuilder</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/UserDefaultsPersister.html">UserDefaultsPersister</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/V1Serializer.html">V1Serializer</a>
               </li>
             </ul>
           </li>
@@ -48,6 +64,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Enums/Limit.html">Limit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/LogLevel.html">LogLevel</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/NetworkType.html">NetworkType</a>
@@ -70,10 +89,24 @@
                 <a href="Protocols/JobCreator.html">JobCreator</a>
               </li>
               <li class="nav-group-task">
+                <a href="Protocols/JobInfoSerializer.html">JobInfoSerializer</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Protocols/JobPersister.html">JobPersister</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/JobResult.html">JobResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/SwiftQueueLogger.html">SwiftQueueLogger</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs/JobInfo.html">JobInfo</a>
               </li>
             </ul>
           </li>
@@ -87,6 +120,70 @@
 
           </section>
           <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftQueue11NetworkTypeO"></a>
+                    <a name="//apple_ref/swift/Enum/NetworkType" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftQueue11NetworkTypeO">NetworkType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Kind of connectivity required for the job to run</p>
+
+                        <a href="Enums/NetworkType.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">NetworkType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftQueue15RetryConstraintO"></a>
+                    <a name="//apple_ref/swift/Enum/RetryConstraint" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftQueue15RetryConstraintO">RetryConstraint</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Behaviour for retrying the job</p>
+
+                        <a href="Enums/RetryConstraint.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">RetryConstraint</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
             <div class="task-group">
               <ul>
                 <li class="item">
@@ -166,7 +263,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">SwiftQueueError</span><span class="p">:</span> <span class="kt">Swift</span><span class="o">.</span><span class="kt">Error</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">SwiftQueueError</span> <span class="p">:</span> <span class="kt">Swift</span><span class="o">.</span><span class="kt">Error</span></code></pre>
 
                         </div>
                       </div>
@@ -180,9 +277,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10SwiftQueue15RetryConstraintO"></a>
-                    <a name="//apple_ref/swift/Enum/RetryConstraint" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10SwiftQueue15RetryConstraintO">RetryConstraint</a>
+                    <a name="/s:10SwiftQueue8LogLevelO"></a>
+                    <a name="//apple_ref/swift/Enum/LogLevel" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftQueue8LogLevelO">LogLevel</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -190,47 +287,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Behaviour for retrying the job</p>
+                        <p>Specify different importance of logging</p>
 
-                        <a href="Enums/RetryConstraint.html" class="slightly-smaller">See more</a>
+                        <a href="Enums/LogLevel.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">RetryConstraint</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10SwiftQueue11NetworkTypeO"></a>
-                    <a name="//apple_ref/swift/Enum/NetworkType" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10SwiftQueue11NetworkTypeO">NetworkType</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Kind of connectivity required for the job to run</p>
-
-                        <a href="Enums/NetworkType.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">NetworkType</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">LogLevel</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>
@@ -242,8 +307,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://github.com/lucas34/SwiftQueue" target="_blank" rel="external">Lucas Nelaupe</a>. All rights reserved. (Last updated: 2018-01-29)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2018 <a class="link" href="https://github.com/lucas34/SwiftQueue" target="_blank" rel="external">Lucas Nelaupe</a>. All rights reserved. (Last updated: 2018-05-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

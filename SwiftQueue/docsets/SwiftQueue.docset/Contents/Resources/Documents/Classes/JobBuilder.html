@@ -31,13 +31,28 @@
             <a href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Classes/ConsoleLogger.html">ConsoleLogger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DecodableSerializer.html">DecodableSerializer</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/JobBuilder.html">JobBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NoLogger.html">NoLogger</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/SwiftQueueManager.html">SwiftQueueManager</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/SwiftQueueManagerBuilder.html">SwiftQueueManagerBuilder</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/UserDefaultsPersister.html">UserDefaultsPersister</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/V1Serializer.html">V1Serializer</a>
               </li>
             </ul>
           </li>
@@ -49,6 +64,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/Limit.html">Limit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/LogLevel.html">LogLevel</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/NetworkType.html">NetworkType</a>
@@ -71,10 +89,24 @@
                 <a href="../Protocols/JobCreator.html">JobCreator</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Protocols/JobInfoSerializer.html">JobInfoSerializer</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Protocols/JobPersister.html">JobPersister</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/JobResult.html">JobResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SwiftQueueLogger.html">SwiftQueueLogger</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/JobInfo.html">JobInfo</a>
               </li>
             </ul>
           </li>
@@ -193,7 +225,9 @@ If override = true the previous job will be canceled and the new job will be sch
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Delay the execution of the job.
-Only start the countdown when the job should run and not when scheduled</p>
+Base on the job creation, when the job is supposed to run,
+If the delay is already pass (longer job before) it will run immediately
+Otherwise it will wait for the remaining time</p>
 
                       </div>
                       <div class="declaration">
@@ -393,7 +427,34 @@ For a periodic job, the retry count will not be reset at each period.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">with</span><span class="p">(</span><span class="nv">params</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">with</span><span class="p">(</span><span class="nv">params</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftQueue10JobBuilderC15requireChargingACXDSb5value_tF"></a>
+                    <a name="//apple_ref/swift/Method/requireCharging(value:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftQueue10JobBuilderC15requireChargingACXDSb5value_tF">requireCharging(value:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Set to <code>true</code> if the job can only run when the device is charging</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">requireCharging</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
 
                         </div>
                       </div>
@@ -432,8 +493,8 @@ For a periodic job, the retry count will not be reset at each period.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://github.com/lucas34/SwiftQueue" target="_blank" rel="external">Lucas Nelaupe</a>. All rights reserved. (Last updated: 2018-01-29)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2018 <a class="link" href="https://github.com/lucas34/SwiftQueue" target="_blank" rel="external">Lucas Nelaupe</a>. All rights reserved. (Last updated: 2018-05-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

@@ -31,13 +31,28 @@
             <a href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Classes/ConsoleLogger.html">ConsoleLogger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DecodableSerializer.html">DecodableSerializer</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/JobBuilder.html">JobBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NoLogger.html">NoLogger</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/SwiftQueueManager.html">SwiftQueueManager</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/SwiftQueueManagerBuilder.html">SwiftQueueManagerBuilder</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/UserDefaultsPersister.html">UserDefaultsPersister</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/V1Serializer.html">V1Serializer</a>
               </li>
             </ul>
           </li>
@@ -49,6 +64,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/Limit.html">Limit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/LogLevel.html">LogLevel</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/NetworkType.html">NetworkType</a>
@@ -71,10 +89,24 @@
                 <a href="../Protocols/JobCreator.html">JobCreator</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Protocols/JobInfoSerializer.html">JobInfoSerializer</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Protocols/JobPersister.html">JobPersister</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/JobResult.html">JobResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SwiftQueueLogger.html">SwiftQueueLogger</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/JobInfo.html">JobInfo</a>
               </li>
             </ul>
           </li>
@@ -92,7 +124,7 @@
               </div>
             <p>Global manager to perform operations on all your queues/
 You will have to keep this instance. We highly recommend you to store this instance in a Singleton
-Creating and instance of this class will automatically un-serialise your jobs and schedule them</p>
+Creating and instance of this class will automatically un-serialize your jobs and schedule them</p>
 
           </section>
           <section class="section task-group-section">
@@ -101,9 +133,9 @@ Creating and instance of this class will automatically un-serialise your jobs an
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10SwiftQueue0aB7ManagerCACSayAA10JobCreator_pG8creators_AA0D9Persister_pSg9persistertcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(creators:persister:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10SwiftQueue0aB7ManagerCACSayAA10JobCreator_pG8creators_AA0D9Persister_pSg9persistertcfc">init(creators:persister:)</a>
+                    <a name="/s:10SwiftQueue0aB7ManagerC11isSuspendedSbvp"></a>
+                    <a name="//apple_ref/swift/Property/isSuspended" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftQueue0aB7ManagerC11isSuspendedSbvp">isSuspended</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -111,14 +143,14 @@ Creating and instance of this class will automatically un-serialise your jobs an
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Create a new QueueManager with creators to instantiate Job</p>
+                        <p>Allow jobs in queue to be executed.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">creators</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/JobCreator.html">JobCreator</a></span><span class="p">],</span> <span class="nv">persister</span><span class="p">:</span> <span class="kt"><a href="../Protocols/JobPersister.html">JobPersister</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isSuspended</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -138,14 +170,15 @@ Creating and instance of this class will automatically un-serialise your jobs an
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Jobs queued will run again</p>
+                        <p>DEPRECATED: Please use <code>isSuspended = false</code></p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">start</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated: 2.0, message: "Please use `isSuspended = false`")</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">start</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -165,14 +198,15 @@ Creating and instance of this class will automatically un-serialise your jobs an
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Avoid new job to run. Not application for current running job.</p>
+                        <p>DEPRECATED:Please use <code>isSuspended = true</code></p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">pause</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated: 2.0, message: "Please use `isSuspended = true`")</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">pause</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -292,8 +326,8 @@ Creating and instance of this class will automatically un-serialise your jobs an
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://github.com/lucas34/SwiftQueue" target="_blank" rel="external">Lucas Nelaupe</a>. All rights reserved. (Last updated: 2018-01-29)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2018 <a class="link" href="https://github.com/lucas34/SwiftQueue" target="_blank" rel="external">Lucas Nelaupe</a>. All rights reserved. (Last updated: 2018-05-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

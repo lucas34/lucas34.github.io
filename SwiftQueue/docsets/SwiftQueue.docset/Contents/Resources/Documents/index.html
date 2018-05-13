@@ -30,13 +30,28 @@
             <a href="Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="Classes/ConsoleLogger.html">ConsoleLogger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/DecodableSerializer.html">DecodableSerializer</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/JobBuilder.html">JobBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/NoLogger.html">NoLogger</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/SwiftQueueManager.html">SwiftQueueManager</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/SwiftQueueManagerBuilder.html">SwiftQueueManagerBuilder</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/UserDefaultsPersister.html">UserDefaultsPersister</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/V1Serializer.html">V1Serializer</a>
               </li>
             </ul>
           </li>
@@ -48,6 +63,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Enums/Limit.html">Limit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/LogLevel.html">LogLevel</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/NetworkType.html">NetworkType</a>
@@ -70,10 +88,24 @@
                 <a href="Protocols/JobCreator.html">JobCreator</a>
               </li>
               <li class="nav-group-task">
+                <a href="Protocols/JobInfoSerializer.html">JobInfoSerializer</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Protocols/JobPersister.html">JobPersister</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/JobResult.html">JobResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/SwiftQueueLogger.html">SwiftQueueLogger</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs/JobInfo.html">JobInfo</a>
               </li>
             </ul>
           </li>
@@ -91,7 +123,7 @@
 
 <p><a href="https://github.com/sindresorhus/awesome"><img src="https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg" alt="Awesome"></a>
 <a href="https://cocoapods.org/pods/SwiftQueue"><img src="https://img.shields.io/cocoapods/p/SwiftQueue.svg" alt="platform"></a>
-<a href="https://swift.org"><img src="https://img.shields.io/badge/Swift-3.0%20%7C%203.2%20%7C%204.0-orange.svg" alt="swift"></a>
+<a href="https://swift.org"><img src="https://img.shields.io/badge/Swift-3.2%20%20%7C%204.1-orange.svg" alt="swift"></a>
 <a href="https://travis-ci.org/lucas34/SwiftQueue"><img src="https://travis-ci.org/lucas34/SwiftQueue.svg?branch=master" alt="travis"></a>
 <a href="https://codecov.io/gh/lucas34/SwiftQueue"><img src="https://codecov.io/gh/lucas34/SwiftQueue/branch/master/graph/badge.svg" alt="codecov"></a>
 <a href="https://cocoapods.org/pods/SwiftQueue"><img src="https://img.shields.io/cocoapods/v/SwiftQueue.svg?style=flat" alt="pod"></a>
@@ -120,7 +152,7 @@
 <h2 id='requirements' class='heading'>Requirements</h2>
 
 <ul>
-<li>iOS 8.0+, watchOS 2.0+, OSX 10.10+, tvOS 9.0+</li>
+<li>iOS 8.0+, watchOS 2.0+, macOS 10.10+, tvOS 9.0+</li>
 <li>Xcode 7.3</li>
 </ul>
 <h2 id='installation' class='heading'>Installation</h2>
@@ -146,7 +178,7 @@
 
 <p>This example will simply wrap an api call. Create your custom job by extending <code><a href="Protocols/Job.html">Job</a></code> with <code>onRun</code>, <code>onRetry</code> and <code>onRemove</code> callbacks.</p>
 <pre class="highlight swift"><code><span class="c1">// A job to send a tweet</span>
-<span class="kd">class</span> <span class="kt">SendTweetJob</span><span class="p">:</span> <span class="nf">Job</span> <span class="p">{</span>
+<span class="kd">class</span> <span class="kt">SendTweetJob</span><span class="p">:</span> <span class="kt">Job</span> <span class="p">{</span>
 
     <span class="c1">// Type to know which Job to return in job creator</span>
     <span class="kd">static</span> <span class="k">let</span> <span class="nv">type</span> <span class="o">=</span> <span class="s">"SendTweetJob"</span>
@@ -158,8 +190,8 @@
         <span class="k">self</span><span class="o">.</span><span class="n">tweet</span> <span class="o">=</span> <span class="n">params</span>
     <span class="p">}</span>
 
-    <span class="kd">func</span> <span class="nf">onRun</span><span class="p">(</span><span class="nv">callback</span><span class="p">:</span> <span class="kt">JobResult</span><span class="p">)</span> <span class="nf">throws</span> <span class="p">{</span>
-        <span class="k">let</span> <span class="nv">api</span> <span class="o">=</span> <span class="k">try</span> <span class="nf">Api</span><span class="p">()</span>
+    <span class="kd">func</span> <span class="nf">onRun</span><span class="p">(</span><span class="nv">callback</span><span class="p">:</span> <span class="kt">JobResult</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">api</span> <span class="o">=</span> <span class="kt">Api</span><span class="p">()</span>
         <span class="n">api</span><span class="o">.</span><span class="nf">sendTweet</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="n">tweet</span><span class="p">)</span><span class="o">.</span><span class="nf">execute</span><span class="p">(</span><span class="nv">onSuccess</span><span class="p">:</span> <span class="p">{</span>
             <span class="n">callback</span><span class="o">.</span><span class="nf">done</span><span class="p">(</span><span class="o">.</span><span class="n">success</span><span class="p">)</span>
         <span class="p">},</span> <span class="nv">onError</span><span class="p">:</span> <span class="p">{</span> <span class="n">error</span> <span class="k">in</span>
@@ -167,14 +199,14 @@
         <span class="p">})</span>
     <span class="p">}</span>
 
-    <span class="kd">func</span> <span class="nf">onRetry</span><span class="p">(</span><span class="nv">error</span><span class="p">:</span> <span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nf">RetryConstraint</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">onRetry</span><span class="p">(</span><span class="nv">error</span><span class="p">:</span> <span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">RetryConstraint</span> <span class="p">{</span>
         <span class="c1">// Check if error is non fatal</span>
         <span class="k">return</span> <span class="n">error</span> <span class="k">is</span> <span class="kt">ApiError</span> <span class="p">?</span> <span class="kt">RetryConstraint</span><span class="o">.</span><span class="nv">cancel</span> <span class="p">:</span> <span class="kt">RetryConstraint</span><span class="o">.</span><span class="nf">retry</span><span class="p">(</span><span class="nv">delay</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// immediate retry</span>
     <span class="p">}</span>
 
     <span class="kd">func</span> <span class="nf">onRemove</span><span class="p">(</span><span class="nv">result</span><span class="p">:</span> <span class="kt">JobCompletion</span><span class="p">)</span> <span class="p">{</span>
         <span class="c1">// This job will never run anymore  </span>
-        <span class="k">switch</span> <span class="nf">result</span> <span class="p">{</span>
+        <span class="k">switch</span> <span class="n">result</span> <span class="p">{</span>
             <span class="k">case</span> <span class="o">.</span><span class="nv">success</span><span class="p">:</span>
                 <span class="c1">// Job success</span>
             <span class="k">break</span>
@@ -189,11 +221,11 @@
 </code></pre>
 
 <p>Create your <code><a href="Classes/SwiftQueueManager.html">SwiftQueueManager</a></code> and <strong>keep the reference</strong>. If you want to cancel a job it has to be done with the same instance.</p>
-<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">manager</span> <span class="o">=</span> <span class="nf">SwiftQueueManager</span><span class="p">(</span><span class="nv">creators</span><span class="p">:</span> <span class="p">[</span><span class="nf">TweetJobCreator</span><span class="p">()])</span>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">manager</span> <span class="o">=</span> <span class="kt">SwiftQueueManagerBuilder</span><span class="p">(</span><span class="nv">creator</span><span class="p">:</span> <span class="kt">TweetJobCreator</span><span class="p">())</span><span class="o">.</span><span class="nf">build</span><span class="p">()</span>
 </code></pre>
 
 <p>Schedule your job and specify the constraints.</p>
-<pre class="highlight swift"><code><span class="nf">JobBuilder</span><span class="p">(</span><span class="nv">type</span><span class="p">:</span> <span class="kt">SendTweetJob</span><span class="o">.</span><span class="n">type</span><span class="p">)</span>
+<pre class="highlight swift"><code><span class="kt">JobBuilder</span><span class="p">(</span><span class="nv">type</span><span class="p">:</span> <span class="kt">SendTweetJob</span><span class="o">.</span><span class="n">type</span><span class="p">)</span>
         <span class="c1">// Requires internet to run</span>
         <span class="o">.</span><span class="nf">internet</span><span class="p">(</span><span class="nv">atLeast</span><span class="p">:</span> <span class="o">.</span><span class="n">cellular</span><span class="p">)</span>
         <span class="c1">// params of my job</span>
@@ -203,36 +235,37 @@
 </code></pre>
 
 <p>Bind your <code>job</code> type with an actual instance.</p>
-<pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">TweetJobCreator</span><span class="p">:</span> <span class="nf">JobCreator</span> <span class="p">{</span>
+<pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">TweetJobCreator</span><span class="p">:</span> <span class="kt">JobCreator</span> <span class="p">{</span>
 
     <span class="c1">// Base on type, return the actual job implementation</span>
-    <span class="kd">func</span> <span class="nf">create</span><span class="p">(</span><span class="nv">type</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">params</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">Any</span><span class="p">]?)</span> <span class="o">-&gt;</span> <span class="nf">Job</span><span class="p">?</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">create</span><span class="p">(</span><span class="nv">type</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">params</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">Any</span><span class="p">]?)</span> <span class="o">-&gt;</span> <span class="kt">Job</span> <span class="p">{</span>
         <span class="c1">// check for job and params type</span>
-        <span class="k">if</span> <span class="n">type</span> <span class="o">==</span> <span class="kt">SendTweetJob</span><span class="o">.</span><span class="nf">type</span>  <span class="p">{</span>
-            <span class="k">return</span> <span class="nf">SendTweetJob</span><span class="p">(</span><span class="nv">params</span><span class="p">:</span> <span class="n">params</span><span class="p">)</span>
-        <span class="p">}</span> <span class="nf">else</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">type</span> <span class="o">==</span> <span class="kt">SendTweetJob</span><span class="o">.</span><span class="n">type</span>  <span class="p">{</span>
+            <span class="k">return</span> <span class="kt">SendTweetJob</span><span class="p">(</span><span class="nv">params</span><span class="p">:</span> <span class="n">params</span><span class="p">)</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
             <span class="c1">// Nothing match</span>
-            <span class="k">return</span> <span class="kc">nil</span>
+            <span class="c1">// You can use `fatalError` or create an empty job to report this issue.</span>
+            <span class="nf">fatalError</span><span class="p">(</span><span class="s">"No Job !"</span><span class="p">)</span>
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
 <h2 id='contributors' class='heading'>Contributors</h2>
 
-<p>We would love you for the contribution to <strong>SwiftQueue</strong>, check the <code>LICENSE</code> file for more info.</p>
+<p>We would love you for the contribution to <strong>SwiftQueue</strong>, check the <a href="LICENSE"><code>LICENSE</code></a> file for more info.</p>
 
 <ul>
 <li><a href="http://www.lucas-nelaupe.fr/">Lucas Nelaupe</a> - <a href="https://twitter.com/lucas34990">@lucas34990</a></li>
 </ul>
-<h2 id='licence' class='heading'>Licence</h2>
+<h2 id='license' class='heading'>License</h2>
 
-<p>Distributed under the MIT license. See <code>LICENSE</code> for more information.</p>
+<p>Distributed under the MIT license. See <a href="LICENSE"><code>LICENSE</code></a> for more information.</p>
 
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://github.com/lucas34/SwiftQueue" target="_blank" rel="external">Lucas Nelaupe</a>. All rights reserved. (Last updated: 2018-01-29)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2018 <a class="link" href="https://github.com/lucas34/SwiftQueue" target="_blank" rel="external">Lucas Nelaupe</a>. All rights reserved. (Last updated: 2018-05-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

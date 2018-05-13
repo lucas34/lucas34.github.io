@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>UserDefaultsPersister Class Reference</title>
+    <title>DecodableSerializer Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/UserDefaultsPersister" class="dashAnchor"></a>
-    <a title="UserDefaultsPersister Class Reference"></a>
+    <a name="//apple_ref/swift/Class/DecodableSerializer" class="dashAnchor"></a>
+    <a title="DecodableSerializer Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">SwiftQueue Docs</a> (100% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">SwiftQueue Reference</a>
         <img id="carat" src="../img/carat.png" />
-        UserDefaultsPersister Class Reference
+        DecodableSerializer Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -115,14 +115,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>UserDefaultsPersister</h1>
+            <h1>DecodableSerializer</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">UserDefaultsPersister</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/JobPersister.html">JobPersister</a></span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">DecodableSerializer</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/JobInfoSerializer.html">JobInfoSerializer</a></span></code></pre>
 
                 </div>
               </div>
-            <p>Persist jobs in UserDefaults</p>
+            <p><code>JSONEncoder</code> and <code>JSONDecoder</code> to serialize JobInfo</p>
 
           </section>
           <section class="section task-group-section">
@@ -131,9 +131,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10SwiftQueue21UserDefaultsPersisterCACSS3key_tcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(key:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10SwiftQueue21UserDefaultsPersisterCACSS3key_tcfc">init(key:)</a>
+                    <a name="/s:10SwiftQueue19DecodableSerializerCAC10Foundation11JSONEncoderC7encoder_AD11JSONDecoderC7decodertcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(encoder:decoder:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftQueue19DecodableSerializerCAC10Foundation11JSONEncoderC7encoder_AD11JSONDecoderC7decodertcfc">init(encoder:decoder:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -141,14 +141,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Create a Job persister with a custom key</p>
+                        <p>Init decodable with custom <code>JSONEncoder</code> and <code>JSONDecoder</code></p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">"SwiftQueueInfo"</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">encoder</span><span class="p">:</span> <span class="kt">JSONEncoder</span> <span class="o">=</span> <span class="kt">JSONEncoder</span><span class="p">(),</span> <span class="nv">decoder</span><span class="p">:</span> <span class="kt">JSONDecoder</span> <span class="o">=</span> <span class="kt">JSONDecoder</span><span class="p">())</span></code></pre>
 
                         </div>
                       </div>
@@ -158,9 +158,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10SwiftQueue12JobPersisterP7restoreSaySSGyF"></a>
-                    <a name="//apple_ref/swift/Method/restore()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10SwiftQueue12JobPersisterP7restoreSaySSGyF">restore()</a>
+                    <a name="/s:10SwiftQueue17JobInfoSerializerP9serializeSSAA0cD0V4info_tKF"></a>
+                    <a name="//apple_ref/swift/Method/serialize(info:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftQueue17JobInfoSerializerP9serializeSSAA0cD0V4info_tKF">serialize(info:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -174,7 +174,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">restore</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">serialize</span><span class="p">(</span><span class="nv">info</span><span class="p">:</span> <span class="kt"><a href="../Structs/JobInfo.html">JobInfo</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -184,9 +184,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10SwiftQueue21UserDefaultsPersisterC7restoreSaySSGSS9queueName_tF"></a>
-                    <a name="//apple_ref/swift/Method/restore(queueName:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10SwiftQueue21UserDefaultsPersisterC7restoreSaySSGSS9queueName_tF">restore(queueName:)</a>
+                    <a name="/s:10SwiftQueue17JobInfoSerializerP11deserializeAA0cD0VSS4json_tKF"></a>
+                    <a name="//apple_ref/swift/Method/deserialize(json:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftQueue17JobInfoSerializerP11deserializeAA0cD0VSS4json_tKF">deserialize(json:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -194,69 +194,13 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Restore jobs for a single queue
-Returns an array of String. serialized job</p>
-
+                        
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">restore</span><span class="p">(</span><span class="nv">queueName</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10SwiftQueue21UserDefaultsPersisterC3putySS9queueName_SS6taskIdSS4datatF"></a>
-                    <a name="//apple_ref/swift/Method/put(queueName:taskId:data:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10SwiftQueue21UserDefaultsPersisterC3putySS9queueName_SS6taskIdSS4datatF">put(queueName:taskId:data:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Insert a job to a specific queue</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">put</span><span class="p">(</span><span class="nv">queueName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">taskId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10SwiftQueue21UserDefaultsPersisterC6removeySS9queueName_SS6taskIdtF"></a>
-                    <a name="//apple_ref/swift/Method/remove(queueName:taskId:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10SwiftQueue21UserDefaultsPersisterC6removeySS9queueName_SS6taskIdtF">remove(queueName:taskId:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Remove a specific task from a queue</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">remove</span><span class="p">(</span><span class="nv">queueName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">taskId</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deserialize</span><span class="p">(</span><span class="nv">json</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/JobInfo.html">JobInfo</a></span></code></pre>
 
                         </div>
                       </div>

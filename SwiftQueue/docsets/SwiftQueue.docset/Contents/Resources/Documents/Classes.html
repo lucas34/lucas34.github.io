@@ -10,6 +10,7 @@
     
   </head>
   <body>
+    <a name="//apple_ref/swift/Section/Classes" class="dashAnchor"></a>
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
@@ -30,13 +31,28 @@
             <a href="Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="Classes/ConsoleLogger.html">ConsoleLogger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/DecodableSerializer.html">DecodableSerializer</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/JobBuilder.html">JobBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/NoLogger.html">NoLogger</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/SwiftQueueManager.html">SwiftQueueManager</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/SwiftQueueManagerBuilder.html">SwiftQueueManagerBuilder</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/UserDefaultsPersister.html">UserDefaultsPersister</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/V1Serializer.html">V1Serializer</a>
               </li>
             </ul>
           </li>
@@ -48,6 +64,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Enums/Limit.html">Limit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/LogLevel.html">LogLevel</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/NetworkType.html">NetworkType</a>
@@ -70,10 +89,24 @@
                 <a href="Protocols/JobCreator.html">JobCreator</a>
               </li>
               <li class="nav-group-task">
+                <a href="Protocols/JobInfoSerializer.html">JobInfoSerializer</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Protocols/JobPersister.html">JobPersister</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/JobResult.html">JobResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/SwiftQueueLogger.html">SwiftQueueLogger</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs/JobInfo.html">JobInfo</a>
               </li>
             </ul>
           </li>
@@ -87,72 +120,6 @@
 
           </section>
           <section class="section task-group-section">
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10SwiftQueue21UserDefaultsPersisterC"></a>
-                    <a name="//apple_ref/swift/Class/UserDefaultsPersister" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10SwiftQueue21UserDefaultsPersisterC">UserDefaultsPersister</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Persist jobs in UserDefaults</p>
-
-                        <a href="Classes/UserDefaultsPersister.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">UserDefaultsPersister</span><span class="p">:</span> <span class="kt"><a href="Protocols/JobPersister.html">JobPersister</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10SwiftQueue0aB7ManagerC"></a>
-                    <a name="//apple_ref/swift/Class/SwiftQueueManager" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10SwiftQueue0aB7ManagerC">SwiftQueueManager</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Global manager to perform operations on all your queues/
-You will have to keep this instance. We highly recommend you to store this instance in a Singleton
-Creating and instance of this class will automatically un-serialise your jobs and schedule them</p>
-
-                        <a href="Classes/SwiftQueueManager.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">SwiftQueueManager</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
             <div class="task-group">
               <ul>
                 <li class="item">
@@ -185,11 +152,229 @@ Creating and instance of this class will automatically un-serialise your jobs an
                 </li>
               </ul>
             </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftQueue19DecodableSerializerC"></a>
+                    <a name="//apple_ref/swift/Class/DecodableSerializer" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftQueue19DecodableSerializerC">DecodableSerializer</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>JSONEncoder</code> and <code>JSONDecoder</code> to serialize JobInfo</p>
+
+                        <a href="Classes/DecodableSerializer.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">DecodableSerializer</span> <span class="p">:</span> <span class="kt"><a href="Protocols/JobInfoSerializer.html">JobInfoSerializer</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftQueue12V1SerializerC"></a>
+                    <a name="//apple_ref/swift/Class/V1Serializer" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftQueue12V1SerializerC">V1Serializer</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Using Key value serializer to match with V1 behavior</p>
+
+                        <a href="Classes/V1Serializer.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">V1Serializer</span> <span class="p">:</span> <span class="kt"><a href="Protocols/JobInfoSerializer.html">JobInfoSerializer</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftQueue13ConsoleLoggerC"></a>
+                    <a name="//apple_ref/swift/Class/ConsoleLogger" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftQueue13ConsoleLoggerC">ConsoleLogger</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Class to compute the log and print to the console</p>
+
+                        <a href="Classes/ConsoleLogger.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">ConsoleLogger</span> <span class="p">:</span> <span class="kt"><a href="Protocols/SwiftQueueLogger.html">SwiftQueueLogger</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftQueue8NoLoggerC"></a>
+                    <a name="//apple_ref/swift/Class/NoLogger" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftQueue8NoLoggerC">NoLogger</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Class to ignore all kind of logs</p>
+
+                        <a href="Classes/NoLogger.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">NoLogger</span> <span class="p">:</span> <span class="kt"><a href="Protocols/SwiftQueueLogger.html">SwiftQueueLogger</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftQueue0aB7ManagerC"></a>
+                    <a name="//apple_ref/swift/Class/SwiftQueueManager" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftQueue0aB7ManagerC">SwiftQueueManager</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Global manager to perform operations on all your queues/
+You will have to keep this instance. We highly recommend you to store this instance in a Singleton
+Creating and instance of this class will automatically un-serialize your jobs and schedule them</p>
+
+                        <a href="Classes/SwiftQueueManager.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">SwiftQueueManager</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftQueue0aB14ManagerBuilderC"></a>
+                    <a name="//apple_ref/swift/Class/SwiftQueueManagerBuilder" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftQueue0aB14ManagerBuilderC">SwiftQueueManagerBuilder</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Entry point to create a <code><a href="Classes/SwiftQueueManager.html">SwiftQueueManager</a></code></p>
+
+                        <a href="Classes/SwiftQueueManagerBuilder.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">SwiftQueueManagerBuilder</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10SwiftQueue21UserDefaultsPersisterC"></a>
+                    <a name="//apple_ref/swift/Class/UserDefaultsPersister" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftQueue21UserDefaultsPersisterC">UserDefaultsPersister</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Persist jobs in UserDefaults</p>
+
+                        <a href="Classes/UserDefaultsPersister.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">UserDefaultsPersister</span> <span class="p">:</span> <span class="kt"><a href="Protocols/JobPersister.html">JobPersister</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://github.com/lucas34/SwiftQueue" target="_blank" rel="external">Lucas Nelaupe</a>. All rights reserved. (Last updated: 2018-01-29)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2018 <a class="link" href="https://github.com/lucas34/SwiftQueue" target="_blank" rel="external">Lucas Nelaupe</a>. All rights reserved. (Last updated: 2018-05-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

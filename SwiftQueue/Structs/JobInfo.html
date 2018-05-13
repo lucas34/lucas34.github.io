@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>NetworkType Enumeration Reference</title>
+    <title>JobInfo Structure Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Enum/NetworkType" class="dashAnchor"></a>
-    <a title="NetworkType Enumeration Reference"></a>
+    <a name="//apple_ref/swift/Struct/JobInfo" class="dashAnchor"></a>
+    <a title="JobInfo Structure Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">SwiftQueue Docs</a> (100% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">SwiftQueue Reference</a>
         <img id="carat" src="../img/carat.png" />
-        NetworkType Enumeration Reference
+        JobInfo Structure Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -115,14 +115,15 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>NetworkType</h1>
+            <h1>JobInfo</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">NetworkType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">JobInfo</span></code></pre>
 
                 </div>
               </div>
-            <p>Kind of connectivity required for the job to run</p>
+            <p>Info related to a single job. Those information may be serialized and persisted
+In order to re-create the job in the future.</p>
 
           </section>
           <section class="section task-group-section">
@@ -131,9 +132,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10SwiftQueue11NetworkTypeO3anyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/any" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10SwiftQueue11NetworkTypeO3anyA2CmF">any</a>
+                    <a name="/s:s9DecodablePxs7Decoder_p4from_tKcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(from:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:s9DecodablePxs7Decoder_p4from_tKcfc">init(from:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -141,26 +142,29 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Job will run regardless the connectivity of the platform</p>
-
+                        
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">any</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">from</span> <span class="nv">decoder</span><span class="p">:</span> <span class="kt">Decoder</span><span class="p">)</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10SwiftQueue11NetworkTypeO8cellularA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/cellular" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10SwiftQueue11NetworkTypeO8cellularA2CmF">cellular</a>
+                    <a name="/s:s9EncodableP6encodeys7Encoder_p2to_tKF"></a>
+                    <a name="//apple_ref/swift/Method/encode(to:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:s9EncodableP6encodeys7Encoder_p2to_tKF">encode(to:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -168,41 +172,13 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Requires at least cellular such as 2G, 3G, 4G, LTE or Wifi</p>
-
+                        
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">cellular</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10SwiftQueue11NetworkTypeO4wifiA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/wifi" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10SwiftQueue11NetworkTypeO4wifiA2CmF">wifi</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Device has to be connected to Wifi or Lan</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">wifi</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">encode</span><span class="p">(</span><span class="n">to</span> <span class="nv">encoder</span><span class="p">:</span> <span class="kt">Encoder</span><span class="p">)</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>

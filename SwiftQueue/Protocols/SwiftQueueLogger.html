@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>NetworkType Enumeration Reference</title>
+    <title>SwiftQueueLogger Protocol Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Enum/NetworkType" class="dashAnchor"></a>
-    <a title="NetworkType Enumeration Reference"></a>
+    <a name="//apple_ref/swift/Protocol/SwiftQueueLogger" class="dashAnchor"></a>
+    <a title="SwiftQueueLogger Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">SwiftQueue Docs</a> (100% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">SwiftQueue Reference</a>
         <img id="carat" src="../img/carat.png" />
-        NetworkType Enumeration Reference
+        SwiftQueueLogger Protocol Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -115,14 +115,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>NetworkType</h1>
+            <h1>SwiftQueueLogger</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">NetworkType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SwiftQueueLogger</span></code></pre>
 
                 </div>
               </div>
-            <p>Kind of connectivity required for the job to run</p>
+            <p>Protocol to implement for implementing your custom logger</p>
 
           </section>
           <section class="section task-group-section">
@@ -131,9 +131,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10SwiftQueue11NetworkTypeO3anyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/any" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10SwiftQueue11NetworkTypeO3anyA2CmF">any</a>
+                    <a name="/s:10SwiftQueue0aB6LoggerP3logyAA8LogLevelO_SSyXK5jobIdSSyXK7messagetF"></a>
+                    <a name="//apple_ref/swift/Method/log(_:jobId:message:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10SwiftQueue0aB6LoggerP3logyAA8LogLevelO_SSyXK5jobIdSSyXK7messagetF">log(_:jobId:message:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -141,68 +141,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Job will run regardless the connectivity of the platform</p>
+                        <p>Function called by the library to log an event</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">any</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10SwiftQueue11NetworkTypeO8cellularA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/cellular" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10SwiftQueue11NetworkTypeO8cellularA2CmF">cellular</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Requires at least cellular such as 2G, 3G, 4G, LTE or Wifi</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">cellular</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10SwiftQueue11NetworkTypeO4wifiA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/wifi" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10SwiftQueue11NetworkTypeO4wifiA2CmF">wifi</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Device has to be connected to Wifi or Lan</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">wifi</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">log</span><span class="p">(</span><span class="n">_</span> <span class="nv">level</span><span class="p">:</span> <span class="kt"><a href="../Enums/LogLevel.html">LogLevel</a></span><span class="p">,</span> <span class="nv">jobId</span><span class="p">:</span> <span class="kd">@autoclosure</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">message</span><span class="p">:</span> <span class="kd">@autoclosure</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
